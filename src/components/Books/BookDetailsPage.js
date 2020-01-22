@@ -10,10 +10,12 @@ const BookDetailsPage = ({ books, loadBooks, book, ...props }) => {
       loadBooks();
     }
   }, []);
-
+  function handleChange() {
+    alert("Clicked");
+  }
   return (
     <div>
-      <BookDetail book={book} />
+      <BookDetail book={book} onClick={handleChange} />
     </div>
   );
 };

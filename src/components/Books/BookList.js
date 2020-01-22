@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import Card from "./Card";
 // const Wrapper = styled.div`
 //   display: flex;
 //   flex-wrap: wrap;
@@ -31,7 +31,7 @@ export default function BookList({ books }) {
       {books.map(book => {
         return (
           <>
-            <div className='container-fluid'>
+            {/* <div className='container-fluid'>
               <div className='row'>
                 <Link to={"/book/" + book.book_id}>
                   <div key={book.book_id} className='card col-12'>
@@ -50,7 +50,18 @@ export default function BookList({ books }) {
                   </div>
                 </Link>
               </div>
-            </div>
+            </div> */}
+            <Card>
+              <img
+                className='card-img-top'
+                src={book.cover}
+                alt='Photo of books'
+              />
+              {book.name} {book.isbn} {book.published_at} {book.author}
+              <Link to={"/book/" + book.book_id}>
+                <p>Learn More</p>
+              </Link>
+            </Card>
           </>
         );
       })}
